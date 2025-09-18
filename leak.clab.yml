@@ -1,0 +1,51 @@
+name: leak
+
+topology:
+  defaults:
+    kind: nokia_srlinux
+  kinds:
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux:25.3.2
+      type: ixr-d3l
+      startup-config: configs/srlinux/__clabNodeName__.cfg
+    linux:
+      image: ghcr.io/srl-labs/network-multitool
+      binds:
+        - configs/clients:/config
+      exec:
+        - bash config/__clabNodeName__.sh 
+    arista_ceos:
+      startup-config: configs/arista/__clabNodeName__.cfg
+      image: ceos64:4.29.4M
+      env:
+        CLAB_MGMT_VRF: mgmt
+
+  nodes:
+    leaf1:
+      kind: nokia_srlinux
+    leaf2:
+      kind: nokia_srlinux
+    leaf3:
+      kind: nokia_srlinux
+    spine1:
+      kind: nokia_srlinux
+    client1:
+      kind: linux
+    client2:
+      kind: linux
+    client3:
+      kind: linux
+    client4:
+      kind: linux
+    client5:
+      kind: linux
+
+  links:
+  - endpoints: [leaf1:e1-3, spine1:e1-1]
+  - endpoints: [leaf2:e1-3, spine1:e1-2]
+  - endpoints: [leaf3:e1-3, spine1:e1-3]
+  - endpoints: [leaf1:e1-1, client1:eth1]
+  - endpoints: [leaf1:e1-2, client2:eth1]
+  - endpoints: [leaf2:e1-1, client3:eth1]
+  - endpoints: [leaf2:e1-2, client4:eth1]
+  - endpoints: [leaf3:e1-1, client5:eth1]
