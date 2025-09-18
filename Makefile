@@ -1,10 +1,13 @@
-.PHONY: help deploy destroy reset status inspect save shell-leaf1 shell-client1 shell-client2 test-ping clean
+.PHONY: help install deploy destroy reset status inspect save shell-leaf1 shell-client1 shell-client2 test-ping clean
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'
 	@echo ''
 	@echo 'Available targets:'
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  %-15s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+install: ## Install containerlab (may require sudo executes https://get.containerlab.dev)
+	bash -c "$$(curl -sL https://get.containerlab.dev)"
 
 deploy: ## Deploy the containerlab topology
 	containerlab deploy -t leak.clab.yml --reconfigure

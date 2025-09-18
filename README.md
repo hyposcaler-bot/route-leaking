@@ -3,11 +3,9 @@
 Requires [containerlab](https://containerlab.dev/install/)
 
 ```
-ubuntu@qemu-builder:~/src/route-leak$ make help
-Usage: make [target]
-
 Available targets:
   help            Show this help message
+  install         Install containerlab (may require sudo executes https://get.containerlab.dev)
   deploy          Deploy the containerlab topology
   destroy         Destroy the containerlab topology
   reset           Destroy and redeploy the topology
