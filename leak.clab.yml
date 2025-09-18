@@ -23,3 +23,14 @@ topology:
   nodes:
     leaf1:
       kind: nokia_srlinux
+    spine1:
+      kind: nokia_srlinux
+    client1:
+      kind: linux
+    client2:
+      kind: linux
+
+
+  links:
+  - endpoints: [leaf1:e1-1, client1:eth1]
+  - endpoints: [leaf1:e1-2, client2:eth1]
