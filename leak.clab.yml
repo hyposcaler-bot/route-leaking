@@ -23,8 +23,6 @@ topology:
   nodes:
     leaf1:
       kind: nokia_srlinux
-    spine1:
-      kind: nokia_srlinux
     client1:
       kind: linux
     client2:
