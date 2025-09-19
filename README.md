@@ -5,7 +5,7 @@
 Requires [containerlab](https://containerlab.dev/install/)
 
 ```
-Available targets:
+Available Make targets:
   help            Show this help message
   install         Install containerlab (may require sudo executes https://get.containerlab.dev)
   deploy          Deploy the containerlab topology
@@ -16,7 +16,6 @@ Available targets:
   save            Save configurations from running containers
   test-ping       Test connectivity between clients
   clean           Clean up all lab artifacts
-ubuntu@qemu-builder:~/src/route-leak$ 
 ```
 
 ## Diagram
