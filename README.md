@@ -1,5 +1,7 @@
 # vrf-lite inter instance route leaking example
 
+
+
 Requires [containerlab](https://containerlab.dev/install/)
 
 ```
@@ -16,3 +18,7 @@ Available targets:
   clean           Clean up all lab artifacts
 ubuntu@qemu-builder:~/src/route-leak$ 
 ```
+
+## Diagram
+
+![Network Diagram](leak.drawio.png)
